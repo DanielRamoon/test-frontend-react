@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/city',
+    path: '/city-list/:state',
     element: <CityList />,
   },
   {

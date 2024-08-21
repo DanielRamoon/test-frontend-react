@@ -1,14 +1,10 @@
 export interface CepResponse {
   cep: string;
-  logradouro: string;
-  complemento: string;
-  bairro: string;
-  localidade: string;
-  uf: string;
-  ibge: string;
-  gia: string;
-  ddd: string;
-  siafi: string;
+  state: string;
+  city: string;
+  neighborhood: string;
+  street: string;
+  service: string;
 }
 
 export interface CepState {

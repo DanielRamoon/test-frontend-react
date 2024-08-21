@@ -41,16 +41,27 @@ export const CepInfoContainer = styled.div`
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.boxBackground};
   border: 1px solid ${(props) => props.theme.colors.border};
-  border-radius: 4px;
+  border-radius: 8px;
   color: ${(props) => props.theme.colors.text};
   max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  text-align: left;
 
   h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.primary};
   }
 
   p {
-    margin: 0.5rem 0;
+    margin: 0.3rem 0;
+    font-size: 1rem;
+  }
+
+  strong {
+    font-weight: 600;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;

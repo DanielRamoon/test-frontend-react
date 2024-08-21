@@ -1,8 +1,7 @@
-// src/components/cerinfo/CepInfo.tsx
-
 import React from 'react';
-import { CepResponse } from '../../types/cep'; // Ajuste o caminho conforme necessário
-import { CepInfoContainer } from '../../styles/HomeStyles'; // Ajuste o caminho conforme necessário
+import { CepResponse } from '../../types/cep';
+import { CepInfoContainer } from '../../styles/HomeStyles';
+import { formatCep } from '../../utils/formatCep';
 
 interface CepInfoProps {
   data: CepResponse | null;
@@ -15,34 +14,22 @@ const CepInfo: React.FC<CepInfoProps> = ({ data }) => {
     <CepInfoContainer>
       <h2>Informações do CEP:</h2>
       <p>
-        <strong>CEP:</strong> {data.cep}
+        <strong>CEP:</strong> {formatCep(data.cep)}
       </p>
       <p>
-        <strong>Endereço:</strong> {data.logradouro}
+        <strong>Estado:</strong> {data.state}
       </p>
       <p>
-        <strong>Complemento:</strong> {data.complemento}
+        <strong>Cidade:</strong> {data.city}
       </p>
       <p>
-        <strong>Bairro:</strong> {data.bairro}
+        <strong>Bairro:</strong> {data.neighborhood}
       </p>
       <p>
-        <strong>Cidade:</strong> {data.localidade}
+        <strong>Rua:</strong> {data.street}
       </p>
       <p>
-        <strong>Estado:</strong> {data.uf}
-      </p>
-      <p>
-        <strong>IBGE:</strong> {data.ibge}
-      </p>
-      <p>
-        <strong>GIA:</strong> {data.gia}
-      </p>
-      <p>
-        <strong>DDD:</strong> {data.ddd}
-      </p>
-      <p>
-        <strong>SIAFI:</strong> {data.siafi}
+        <strong>Serviço:</strong> {data.service}
       </p>
     </CepInfoContainer>
   );

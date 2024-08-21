@@ -1,50 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Box, Title } from '../styles/HomeStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Loader from '../components/Loader';
 import CepInfo from '../components/cerinfo/CepInfo';
-import { CepResponse } from '../types/cep';
 import { Link } from 'react-router-dom';
-import { formatCep } from '../utils/formatCep';
+import { useCepContext } from '../hooks/useCepContext';
 
 const Home: React.FC = () => {
-  const [cep, setCep] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false);
-  const [cepInfo, setCepInfo] = useState<CepResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-    const formattedValue = formatCep(inputValue);
-    setCep(formattedValue);
-  };
-
-  const handleButtonClick = async () => {
-    setLoading(true);
-    setError(null);
-    setCepInfo(null);
-
-    const cleanCep = cep.replace(/\D/g, '');
-
-    const mockData: CepResponse = {
-      cep: formatCep(cleanCep),
-      logradouro: 'Praça da Sé',
-      complemento: 'lado ímpar',
-      bairro: 'Sé',
-      localidade: 'São Paulo',
-      uf: 'SP',
-      ibge: '3550308',
-      gia: '1004',
-      ddd: '11',
-      siafi: '7107',
-    };
-
-    setTimeout(() => {
-      setCepInfo(mockData);
-      setLoading(false);
-    }, 1000);
-  };
+  const {
+    cep,
+    handleInputChange,
+    handleButtonClick,
+    loading,
+    cepInfo,
+    error,
+    state,
+  } = useCepContext();
 
   return (
     <Container>
@@ -53,19 +25,29 @@ const Home: React.FC = () => {
           <Loader />
         ) : (
           <>
-            <Title>Buscador de Cep:</Title>
+            <Title>Buscador de CEP</Title>
             <Input
               type="text"
               placeholder="Digite o CEP"
               value={cep}
               onChange={handleInputChange}
+              aria-label="Campo de entrada de CEP"
             />
-            <Button onClick={handleButtonClick}>Pesquisar</Button>
-            {error && <p>{error}</p>}
+            <Button onClick={handleButtonClick} disabled={loading}>
+              {loading ? 'Pesquisando...' : 'Pesquisar'}
+            </Button>
+            {error && <p role="alert">{error}</p>}
             {cepInfo && (
               <>
                 <CepInfo data={cepInfo} />
-                <Link to={`/city-list`}>Ver todas as cidades do estado</Link>
+                {state && (
+                  <Link
+                    to={`/city-list/${state}`}
+                    aria-label={`Ver cidades do estado ${state}`}
+                  >
+                    Ver todas as cidades do estado
+                  </Link>
+                )}
               </>
             )}
           </>

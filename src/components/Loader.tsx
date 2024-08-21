@@ -1,5 +1,3 @@
-// src/components/Loader.tsx
-
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../styles/theme'; // Caminho para o arquivo de tema
