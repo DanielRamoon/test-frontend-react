@@ -2,10 +2,9 @@ import { fetchCep } from '../api/cep';
 
 describe('fetchCep - Integração', () => {
   it('deve retornar dados do CEP com sucesso ao consultar a API real', async () => {
-    const cep = '01311000'; // Utilize um CEP válido
+    const cep = '01311000';
     const result = await fetchCep(cep);
 
-    // Verifique se os dados retornados contêm as propriedades esperadas
     expect(result).toHaveProperty('neighborhood');
     expect(result).toHaveProperty('city');
     expect(result).toHaveProperty('state');

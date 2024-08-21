@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# React Buscador de CEP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto de aplicação em React para buscar informações sobre CEP e listar todas as cidades de um estado. A aplicação utiliza Vite como bundler, Styled Components para estilização, e Jest para testes.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Buscar CEP:** Digite um CEP e veja as informações associadas a ele.
+- **Listar Cidades:** Ao clicar em "Ver todas as cidades do estado", você será direcionado para outra tela que lista todas as cidades do estado correspondente ao CEP pesquisado.
 
-## Expanding the ESLint configuration
+## Dependências
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Dependências
 
-- Configure the top-level `parserOptions` property like this:
+- `@types/react-router-dom`: Tipos TypeScript para `react-router-dom`.
+- `axios`: Biblioteca para realizar requisições HTTP.
+- `react`: Biblioteca principal para construção de interfaces de usuário.
+- `react-dom`: Biblioteca para renderização de componentes React no DOM.
+- `react-router-dom`: Biblioteca para navegação entre páginas.
+- `styled-components`: Biblioteca para estilização de componentes com CSS-in-JS.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Dependências de Desenvolvimento
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `@eslint/js`: Pacote principal do ESLint.
+- `@testing-library/jest-dom`: Extensões de matchers para Jest.
+- `@testing-library/react`: Biblioteca para testes de componentes React.
+- `@testing-library/react-hooks`: Biblioteca para testar hooks React.
+- `@types/jest`: Tipos TypeScript para Jest.
+- `@types/react`: Tipos TypeScript para React.
+- `@types/react-dom`: Tipos TypeScript para ReactDOM.
+- `@types/styled-components`: Tipos TypeScript para Styled Components.
+- `@types/testing-library__react`: Tipos TypeScript para Testing Library React.
+- `@typescript-eslint/eslint-plugin`: Plugin ESLint para TypeScript.
+- `@typescript-eslint/parser`: Parser ESLint para TypeScript.
+- `@vitejs/plugin-react`: Plugin Vite para React.
+- `eslint`: Linter para JavaScript e TypeScript.
+- `eslint-config-prettier`: Configuração para desativar regras do ESLint que conflitam com o Prettier.
+- `eslint-plugin-react`: Plugin ESLint para regras específicas de React.
+- `eslint-plugin-react-hooks`: Plugin ESLint para regras específicas de hooks React.
+- `eslint-plugin-react-refresh`: Plugin ESLint para suporte ao React Fast Refresh.
+- `globals`: Definições globais para linting.
+- `jest`: Framework de testes.
+- `jest-environment-jsdom`: Ambiente de teste Jest baseado em JSDOM.
+- `prettier`: Formatador de código.
+- `ts-jest`: Biblioteca para usar TypeScript com Jest.
+- `ts-node`: Executador de código TypeScript.
+- `typescript`: Compilador TypeScript.
+- `typescript-eslint`: Biblioteca de ferramentas para linting e análise estática de TypeScript.
+- `vite`: Bundler e ferramenta de desenvolvimento.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Requisitos
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Antes de rodar o projeto, certifique-se de que você tem os seguintes softwares instalados:
+
+- **Node.js** (versão 18.x ou superior): [Download Node.js](https://nodejs.org/)
+- **npm** (gerenciador de pacotes do Node.js): Geralmente instalado com o Node.js.
+- **Git** (para clonar o repositório): [Download Git](https://git-scm.com/)
+
+## Comandos
+
+### Iniciar o Servidor de Desenvolvimento
+
+```bash
+npm run dev
+
+Executar Testes
+npm test
+
+Instalação
+
+- Clone o repositório:
+git clone git@github.com:DanielRamoon/test-frontend-react.git
+
+Instale as dependências:
+npm install
 ```

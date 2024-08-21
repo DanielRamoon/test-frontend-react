@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetchCities from '../hooks/useCities';
+import { filterCities } from '../utils/filterCities';
 import {
   CityListContainer,
   CityListTitle,
@@ -8,19 +9,30 @@ import {
   CityItem,
   BackLink,
 } from '../styles/CityListStyles';
+import SearchInput from '../components/SearchInput';
 
 const CityList: React.FC = () => {
   const { state } = useParams<{ state?: string }>();
   const { cities, loading, error } = useFetchCities(state || '');
 
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredCities = filterCities(cities, searchTerm);
+
   return (
     <CityListContainer>
       <CityListTitle>Cidades de {state || 'Estado Desconhecido'}</CityListTitle>
+      <SearchInput
+        type="text"
+        placeholder="Pesquisar cidade..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
       {loading && <p>Carregando...</p>}
       {error && <p>{error}</p>}
       {!loading && !error && (
         <CityListWrapper>
-          {cities.map((city, index) => (
+          {filteredCities.map((city, index) => (
             <CityItem key={index}>{city.nome}</CityItem>
           ))}
         </CityListWrapper>
