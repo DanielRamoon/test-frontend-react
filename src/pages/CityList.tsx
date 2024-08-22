@@ -35,7 +35,8 @@ const CityList: React.FC = () => {
         <CityListWrapper>
           {filteredCities.map((city, index) => (
             <CityItem key={index}>
-              {city.nome} - Código: {city.codigo_ibge || 'CEP não disponível'}
+              {city.nome} - Código:{' '}
+              {city.codigo_ibge || 'código não disponível'}
             </CityItem>
           ))}
         </CityListWrapper>
