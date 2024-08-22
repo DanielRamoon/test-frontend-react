@@ -5,7 +5,7 @@ const SearchInput = styled.input`
   border-radius: 4px;
   padding: 10px;
   font-size: 16px;
-  width: 20%;
+  width: 50%;
   box-sizing: border-box;
 
   &:focus {
