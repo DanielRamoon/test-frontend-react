@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import { Container, Box, Title } from '../styles/HomeStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -6,6 +7,8 @@ import Loader from '../components/Loader';
 import CepInfo from '../components/cerinfo/CepInfo';
 import { Link } from 'react-router-dom';
 import { useCepContext } from '../hooks/useCepContext';
+import { ToastContainer, toast } from 'react-toastify';
+import ButtonView from '../components/ButtonView';
 
 const Home: React.FC = () => {
   const {
@@ -17,6 +20,10 @@ const Home: React.FC = () => {
     error,
     state,
   } = useCepContext();
+
+  if (error) {
+    toast.error(error);
+  }
 
   return (
     <Container>
@@ -36,7 +43,6 @@ const Home: React.FC = () => {
             <Button onClick={handleButtonClick} disabled={loading}>
               {loading ? 'Pesquisando...' : 'Pesquisar'}
             </Button>
-            {error && <p role="alert">{error}</p>}
             {cepInfo && (
               <>
                 <CepInfo data={cepInfo} />
@@ -45,7 +51,7 @@ const Home: React.FC = () => {
                     to={`/city-list/${state}`}
                     aria-label={`Ver cidades do estado ${state}`}
                   >
-                    Ver todas as cidades do estado
+                    <ButtonView>Ver todas as cidades do estado</ButtonView>
                   </Link>
                 )}
               </>
@@ -53,6 +59,7 @@ const Home: React.FC = () => {
           </>
         )}
       </Box>
+      <ToastContainer />
     </Container>
   );
 };

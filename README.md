@@ -55,6 +55,12 @@ Antes de rodar o projeto, certifique-se de que você tem os seguintes softwares 
 - **npm** (gerenciador de pacotes do Node.js): Geralmente instalado com o Node.js.
 - **Git** (para clonar o repositório): [Download Git](https://git-scm.com/)
 
+# API
+
+Estamos usando as apis https://brasilapi.com.br/api/cep/v1 e https://brasilapi.com.br/api/ibge/municipios/v1
+
+docs: https://brasilapi.com.br/docs
+
 ## Comandos
 
 ### Iniciar o Servidor de Desenvolvimento

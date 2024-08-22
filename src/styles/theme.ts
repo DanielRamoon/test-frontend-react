@@ -1,10 +1,11 @@
 export const theme = {
   colors: {
-    primary: '#003366',
-    secondary: '#6c757d',
-    background: '#f8f9fa',
-    text: '#fafafa',
-    border: '#777',
-    boxBackground: '#181818',
+    primary: '#005f73',
+    secondary: '#94d2bd',
+    background: '#e9ecef',
+    text: '#2b2d42',
+    border: '#8d99ae',
+    boxBackground: '#ffffff',
+    textButton: '#fafafa',
   },
 };

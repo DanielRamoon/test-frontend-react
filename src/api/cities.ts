@@ -16,7 +16,7 @@ export const fetchCities = async (state: string) => {
       console.error('Erro desconhecido:', error);
     }
     throw new Error(
-      'Erro ao buscar informações das cidades. Verifique o console para mais detalhes.'
+      'Erro ao buscar informações das cidades.Tente novamente maistarde.'
     );
   }
 };

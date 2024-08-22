@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const ButtonView = styled.button`
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.textButton};
   border: none;
-  padding: 18px 30px;
-  font-size: 22px;
+  padding: 4px 8px;
+  font-size: 18px;
   cursor: pointer;
   border-radius: 4px;
+  margin-top: 10px;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
-export default Button;
+export default ButtonView;

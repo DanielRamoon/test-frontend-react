@@ -20,7 +20,7 @@ export const Box = styled.div`
   padding: 3%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 90%;
-  width: 60%;
+  width: 70%;
   max-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -43,20 +43,21 @@ export const CepInfoContainer = styled.div`
   border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 8px;
   color: ${(props) => props.theme.colors.text};
-  max-width: 100%;
+  width: 60%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: left;
 
   h2 {
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.colors.primary};
+    text-align: center;
   }
 
   p {
-    margin: 0.3rem 0;
+    margin: 0rem 0;
     font-size: 1rem;
   }
 

@@ -5,5 +5,5 @@ export const formatCep = (cep: string): string => {
     return `${cleanCep.slice(0, 5)}-${cleanCep.slice(5)}`;
   }
 
-  return cep;
+  return cleanCep;
 };

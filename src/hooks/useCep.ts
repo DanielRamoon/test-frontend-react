@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { CepResponse } from '../types/cep';
 import { fetchCep } from '../api/cep';
 import { formatCep } from '../utils/formatCep';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function useCep() {
   const [cep, setCep] = useState<string>('');
@@ -29,7 +31,7 @@ function useCep() {
       setState(data.state);
     } catch (err) {
       console.error('Erro ao buscar informações do CEP:', err);
-      setError('Erro ao buscar informações do CEP. Tente novamente.');
+      toast.error('Erro ao buscar informações do CEP. Tente novamente.');
     } finally {
       setLoading(false);
     }

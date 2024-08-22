@@ -10,6 +10,7 @@ import {
   BackLink,
 } from '../styles/CityListStyles';
 import SearchInput from '../components/SearchInput';
+import Loader from '../components/Loader';
 
 const CityList: React.FC = () => {
   const { state } = useParams<{ state?: string }>();
@@ -28,7 +29,7 @@ const CityList: React.FC = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      {loading && <p>Carregando...</p>}
+      {loading && <Loader />}
       {error && <p>{error}</p>}
       {!loading && !error && (
         <CityListWrapper>
